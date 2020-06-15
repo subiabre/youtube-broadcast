@@ -27,18 +27,18 @@ io.on('connection', (socket) => {
         referer = socket.handshake.headers.referer
         ;
 
-    console.log(stratter(`Client ${address} connected @ ${referer}.`, {
+    console.log(`[${new Date().toLocaleString()}]: ` + stratter(`Client ${address} connected @ ${referer}.`, {
         foreground: 'green'
     }));
 
     socket.on('disconnect', () => {
-        console.log(stratter(`Client ${address} disconnected @ ${referer}.`, {
+        console.log(`[${new Date().toLocaleString()}]: ` + stratter(`Client ${address} disconnected @ ${referer}.`, {
             foreground: 'red'
         }));
     });
 
     socket.on('streamReceive', (url) => {
-        console.log(stratter(`Client ${address} sent: '${url}'`, {
+        console.log(`[${new Date().toLocaleString()}]: ` + stratter(`Client ${address} sent: '${url}'`, {
             foreground: 'yellow'
         }));
 
