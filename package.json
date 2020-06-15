@@ -31,6 +31,7 @@
     "express": "^4.17.1",
     "helmet": "^3.23.0",
     "socket.io": "^2.3.0",
+    "stratter": "^1.0.1",
     "youtube-dl": "^3.0.2"
   }
 }
