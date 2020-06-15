@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
+    font-family: monospace;
 }
 
 form {
@@ -18,6 +19,14 @@ input, button {
 
 h1 {
     color: white;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
+}
+
+#apio {
+    color: white;
+    text-align: center;
+}
+
+#apio h1 {
+    font-size: 3em;
 }
