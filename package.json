@@ -1,0 +1,33 @@
+{
+  "name": "apio",
+  "version": "1.0.0",
+  "description": "AP I/O",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subiabre/apio.git"
+  },
+  "keywords": [
+    "local",
+    "server",
+    "I/O"
+  ],
+  "author": "subiabrewd@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/subiabre/apio/issues"
+  },
+  "homepage": "https://github.com/subiabre/apio#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
