@@ -11,6 +11,7 @@
                 id="stream" 
                 placeholder="http://youtube.com..."
                 autofocus
+                autocomplete="off"
                 >
             <button>Send</button>
         </form>
@@ -22,6 +23,7 @@
         <script>
             $(function () {
                 var socket = io();
+
                 $('form').submit(function(e) {
                     e.preventDefault(); // prevents page reloading
                     socket.emit('streamReceive', $('#stream').val());
