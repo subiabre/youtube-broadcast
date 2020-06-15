@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
 const youtubeDl = require('youtube-dl');
+const stratter = require('stratter');
 
 app.use(helmet.frameguard());
 app.use(bodyParser.json());
@@ -22,14 +23,24 @@ app.get('/send', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    console.log('Client connected');
+    let address = socket.handshake.address, 
+        referer = socket.handshake.headers.referer
+        ;
+
+    console.log(stratter(`Client ${address} connected @ ${referer}.`, {
+        foreground: 'green'
+    }));
 
     socket.on('disconnect', () => {
-        console.log('Client disconnected');
+        console.log(stratter(`Client ${address} disconnected @ ${referer}.`, {
+            foreground: 'red'
+        }));
     });
 
     socket.on('streamReceive', (url) => {
-        console.log('Received url: ' + url);
+        console.log(stratter(`Client ${address} sent: '${url}'`, {
+            foreground: 'yellow'
+        }));
 
         youtubeDl.getInfo(url, (err, info) => {
             io.emit('streamUpdate', {id: info.id});
