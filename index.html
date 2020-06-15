@@ -13,8 +13,14 @@
             frameborder="0"
             encrypted-media
             allowfullscreen
+            hidden
             >
         </iframe>
+
+        <div id="apio">
+            <h1>APIO</h1>
+            <p>Send a video using the <code>/send</code> page to start watching.</p>
+        </div>
 
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -25,8 +31,9 @@
                 socket.on('streamUpdate', function(video){
                     let embed = `https://www.youtube.com/embed/${video.id}?autoplay=1`;
 
+                    $('#apio').attr('hidden', true);
+                    $('#player').removeAttr('hidden');
                     $('#player').attr('src', embed);
-                    console.log(embed);
                 });
             });
         </script>
